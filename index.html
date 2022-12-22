@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
+    body{
+        background-image: url("tip.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        color:white;
+    }
+    .container-fluid{
+      background-color: rgba(195, 156, 47, 0.849);
+      color:white;
+    }
+    .container{ 
+        background-color: rgb(218, 190, 155);
+        color: white;
+        
+        margin-top: 50px;
+        min-width: 40%;
+        border-color: brown;
+        border-style:double;
+    }
+    #bill,#tip,#share,#answer{
+        margin-top: 5px;
+        text-align: center;
+        color: brown;
+        border-radius: 5px;
+        
+    }
+    input{
+        border-color: brown;
+        border-style: solid;
+    }
+    a{
+        background-color: white;
+        color: brown;
+        max-width: 300px;
+        border-radius: 5px;
+        border-color: brown;
+        border-style: solid;
+    }
+    .dropdown-toggle,.dropdown-item{
+        color: brown; 
+    }
+    .value{
+        color: brown;
+
+    }
+    button{
+        background-color: brown;
+        color: white;
+        border-style: none;
+        
+    }
+   </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Tip Calculator</title>
+  </head>
+  <body>
+    <div class="container-fluid mt-1 ">
+        
+    <h1 class="">Tip Calculator</h1></div>
+    <div class="container p-5 align-items-center justify-content-center w-25 rounded">
+        <div class=" align-items-center justify-content-center m-2" id="bill">
+           Bill Amount:
+           <div><input type="text" name="bill" id="billamount"></div>
+        </div>
+        <div class="align-items-center justify-content-center" id="tip">How much you liked it ?
+           <div class="dropdown m-2" > <a class="dropdown-toggle px-5 py-1" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false" id="rate">
+                Dropdown
+              </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" onclick='select1()'id='dropdown1'href="#">50% outstanding</a></li>
+                <li><a class="dropdown-item" onclick='select2()'id='dropdown2' href="#">20% good</a></li>
+                <li><a class="dropdown-item" onclick='select3()'id='dropdown3' href="#">10% okay</a></li>
+                <li><a class="dropdown-item" onclick='select4()'id='dropdown4' href="#">5% bad</a></li>
+              </ul></div>
+        </div>
+        <div class="divider align-items-center justify-content-center m-2" id="share">
+            How many people share bill ?
+            <div><input type="text" name="share" id="shareamount"></div>
+        </div>
+        <div class="btn mx-5"><button class="align-items-center justify-content-center mx-5 px-2" onclick="myvalue()">Submit</button></div>
+        <div class="value align-items-center justify-content-center m-2 p-5">Tip value:
+            <input type="text" name="" id="answer">each
+        </div>
+    </div>
+    <script>
+    let bill=document.getElementById("billamount");
+    let share=document.getElementById("shareamount");
+    let dropdown=document.querySelector("a");
+    let dropdownselect=document.getElementsByClassName("dropdown-item");
+    let percent;
+    //console.log(dropdown.innerText);
+    //dropdownselect.addEventListener("click",select());
+    function select1(){
+    
+       dropdown.innerText=dropdownselect[0].textContent;
+       percent=50;
+       //console.log(dropdown);
+       
+    }
+    function select2(){
+    
+    dropdown.innerText=dropdownselect[1].textContent;
+    percent=20;
+    
+ }
+ function select3(){
+    
+    dropdown.innerText=dropdownselect[2].textContent;
+    percent=10;
+    
+ }
+ function select4(){
+    
+    dropdown.innerText=dropdownselect[3].textContent;
+    percent=5;
+    
+ }
+  function myvalue(){
+ let answer=document.getElementById("answer");
+ answer.value=((bill.value/share.value)*(percent/100));
+console.log(answer.value)
+}
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
